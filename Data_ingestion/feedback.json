@@ -1,0 +1,9 @@
+[
+  {
+    "feedback_id": "6a014eeb-eb7e-4058-a581-984393f906df",
+    "query_id": "test-query-uuid-12345",
+    "rating": "thumbs_up",
+    "comment": "Accurate response with valid code!",
+    "created_at": "2026-10-15T13:40:40.995931+00:00"
+  }
+]
