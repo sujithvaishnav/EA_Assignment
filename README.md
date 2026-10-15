@@ -79,34 +79,6 @@ flowchart TD
 
 ## 4. State Schema & Node-to-Node Data Flow
 
-```mermaid
-flowchart TD
-    A([User Query]) --> B[Query Analysis]
-    B --> C[Hybrid Retrieval]
-    C --> D[Document Grading]
-    D --> E{Relevant Documents?}
-
-    E -->|Yes| F[Generate Answer]
-    E -->|No| G{Retrieval Retry Limit Reached?}
-
-    G -->|No| H[Rewrite Query]
-    H --> C
-
-    G -->|Yes| I[Web Search Fallback]
-    I --> F
-
-    F --> J[Groundedness Check]
-    J --> K{Answer Supported?}
-
-    K -->|Yes| L([Answer with Citations])
-    K -->|No| M{Regeneration Limit Reached?}
-
-    M -->|No| N[Regenerate Answer]
-    N --> J
-
-    M -->|Yes| O([Return Final Response])
-```
-
 The entire workflow coordinates around a centralized, typed shared state defined in [`rag_pipeline/state.py`](rag_pipeline/state.py):
 
 ```python
